@@ -1,22 +1,5 @@
 ;parse mp3 file
 
-'#|
-32bits header
-1~11    frame synchronizer
-12~13   MPEG version ID
-14~15   layer
-16      CRC protection
-17~20   bitrate index
-21~22   sampling rate frequency index
-23      padding
-24      private bit
-25~26   channel
-27~28   mode extension (only if join stereo is setted)
-29      copyright
-30      original
-31~32   emphasis
-|#'
-
 (defun count-frame-length ()
   ("to calculate the frame length")
   ((+ (floor (* 144 (/ bitrates samplingrate))) padding)))
